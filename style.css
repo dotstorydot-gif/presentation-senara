@@ -2433,27 +2433,28 @@ html[dir="rtl"] .roadmap-grid {
 .rm-badge-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.6rem;
+  justify-content: flex-start;
+  margin-bottom: 0.85rem;
   gap: 0.5rem;
 }
 
 .rm-phase-tag {
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  background: rgba(52, 82, 255, 0.2);
-  color: #7B95FF;
-  border: 1px solid rgba(52, 82, 255, 0.4);
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(52, 82, 255, 0.25);
+  color: #8CA3FF;
+  border: 1px solid rgba(52, 82, 255, 0.45);
+  display: inline-block;
 }
 
 .roadmap-item.current-milestone .rm-phase-tag {
-  background: rgba(255, 87, 51, 0.2);
-  color: #FF8566;
-  border-color: rgba(255, 87, 51, 0.5);
+  background: rgba(255, 87, 51, 0.25);
+  color: #FFA085;
+  border-color: rgba(255, 87, 51, 0.55);
 }
 
 .rm-quarter {
