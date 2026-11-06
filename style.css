@@ -2052,6 +2052,33 @@ html[dir="rtl"] .pop-tag {
 .mock-line.wide { width: 100%; }
 .mock-line.short { width: 50%; }
 
+.inapp-notif-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(52, 82, 255, 0.15);
+  border: 1px solid rgba(52, 82, 255, 0.35);
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+}
+
+.notif-badge {
+  background: var(--brand-electric);
+  color: #FFFFFF;
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.notif-text {
+  font-size: 0.65rem;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
 /* Stream 3 Addons */
 .addon-services-list {
   display: flex;
