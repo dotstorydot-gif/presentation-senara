@@ -2405,10 +2405,11 @@ html[dir="rtl"] .pop-tag {
 
 .roadmap-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
   text-align: left;
-  margin-bottom: 2.75rem;
+  margin: 0 auto 2.75rem auto;
+  max-width: 980px;
 }
 
 html[dir="rtl"] .roadmap-grid {
