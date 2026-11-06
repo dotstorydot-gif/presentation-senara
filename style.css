@@ -685,6 +685,123 @@ html[dir="rtl"] body.mode-scroll .slide-section {
   margin-bottom: 2.25rem;
 }
 
+/* Hero Split Features: For Businesses & For Job Seekers */
+.hero-split-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero-feat-card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+}
+
+.hero-feat-card.card-business {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.08) 0%, rgba(11, 23, 54, 0.75) 100%);
+}
+
+.hero-feat-card.card-business:hover {
+  border-color: var(--brand-sapphire);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+.hero-feat-card.card-seekers {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, rgba(11, 23, 54, 0.75) 100%);
+}
+
+.hero-feat-card.card-seekers:hover {
+  border-color: var(--brand-emerald);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+  transform: translateY(-2px);
+}
+
+.feat-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.feat-badge-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.feat-badge-titles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.feat-target-role {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.feat-badge-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.blue-badge-pill {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+.green-badge-pill {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.feat-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.feat-icon {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.feat-item h4 {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.1rem;
+}
+
+.feat-item p {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
 .point-pill {
   display: flex;
   align-items: flex-start;
@@ -902,6 +1019,19 @@ html[dir="rtl"] body.mode-scroll .slide-section {
   letter-spacing: 0.08em;
   color: var(--text-dim);
   font-weight: 700;
+}
+
+.badge-type-bold {
+  font-family: var(--font-en);
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #FFFFFF !important;
+  letter-spacing: 0.05em;
+  display: block;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 0.2rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .badge-title {

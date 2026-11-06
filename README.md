@@ -50,3 +50,4 @@ This repository hosts the interactive web presentation for **SENARA** (`presenta
 
 &copy; 2026 SENARA (صنارة). All rights reserved.
 Official Website: [www.senaraa.com](https://www.senaraa.com)
+
