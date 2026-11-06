@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENARA (صنارة) — Interactive Presentation & Investor Pitch</title>
+  <meta name="description" content="Senara — A Hook, Not A Net. Precision hiring platform connecting verified job seekers and verified businesses in Egypt & MENA.">
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans & Cairo for Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Atmospheric Background Glows -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+    <div class="glow-orb glow-3"></div>
+    <div class="water-ripples"></div>
+  </div>
+
+  <!-- Top Persistent Header / Presentation Controls -->
+  <header class="pres-header">
+    <div class="header-left">
+      <a href="https://www.senaraa.com" target="_blank" rel="noopener" class="brand-link" title="Visit Senara Live Website">
+        <img src="assets/senara-logo.png" alt="Senara Logo" class="nav-logo">
+      </a>
+      <span class="badge-tag live-badge">
+        <span class="pulse-dot"></span>
+        <span class="text-en">LIVE DECK</span>
+        <span class="text-ar">عرض تقديمي حي</span>
+      </span>
+    </div>
+
+    <!-- Center Slide Quick Stepper -->
+    <div class="header-center">
+      <div class="slide-indicator-pill">
+        <button id="prev-slide-btn" class="icon-btn" aria-label="Previous Slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span id="slide-counter" class="slide-num">01 / 08</span>
+        <button id="next-slide-btn" class="icon-btn" aria-label="Next Slide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <span id="current-slide-title" class="slide-title-preview">Genesis & Vision</span>
+    </div>
+
+    <!-- Header Actions -->
+    <div class="header-right">
+      <!-- Quick Cast Hook Test -->
+      <button id="quick-cast-btn" class="pill-btn cast-btn" title="Quick Cast the Hook">
+        <span>🎣</span>
+        <span class="text-en">Cast Hook</span>
+        <span class="text-ar">ارمِ الصنارة</span>
+      </button>
+
+      <!-- Print / Export Deck -->
+      <button id="print-deck-btn" class="icon-btn" title="Print / Save PDF Deck" aria-label="Print Deck">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      </button>
+
+      <!-- Mode Toggle: Deck vs Scrolly -->
+      <button id="mode-toggle-btn" class="pill-btn mode-btn" title="Toggle Slide / Scroll Mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <span class="mode-text text-en">Slide Mode</span>
+        <span class="mode-text text-ar">وضع الشرائح</span>
+      </button>
+
+      <!-- Audio Reel Sound FX -->
+      <button id="audio-toggle-btn" class="icon-btn" title="Toggle Sound Effects" aria-label="Toggle Sound Effects">
+        <svg id="audio-on-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <svg id="audio-off-icon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+
+      <!-- Language Toggle (EN / AR) -->
+      <button id="lang-toggle-btn" class="lang-btn" title="Switch Language">
+        <span class="lang-tag current">EN</span>
+        <span class="lang-divider">/</span>
+        <span class="lang-tag">عربي</span>
+      </button>
+
+      <!-- Fullscreen Toggle -->
+      <button id="fullscreen-btn" class="icon-btn" title="Fullscreen Presentation" aria-label="Fullscreen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Interactive Floating Fishing Hook Track (The Senara Interactive Rig) -->
+  <div class="fishing-rig-container" id="fishing-rig" aria-hidden="true">
+    <div class="fishing-rod-tip"></div>
+    <!-- Monofilament Fishing Line -->
+    <div class="fishing-line" id="fishing-line"></div>
+    
+    <!-- The Animated Senara Hook Unit -->
+    <div class="hook-unit" id="hook-unit">
+      <div class="hook-ripple"></div>
+      <svg class="hook-svg" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hookMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8BB5FF"/>
+            <stop offset="35%" stop-color="#3452FF"/>
+            <stop offset="70%" stop-color="#142699"/>
+            <stop offset="100%" stop-color="#0B1347"/>
+          </linearGradient>
+          <linearGradient id="coralGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFA07A"/>
+            <stop offset="100%" stop-color="#FF5733"/>
+          </linearGradient>
+          <filter id="hookShadow" x="-20%" y="-20%" width="150%" height="150%">
+            <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#00185e" flood-opacity="0.6"/>
+          </filter>
+        </defs>
+
+        <!-- Top Swivel Eyelet (The Connection Point) -->
+        <circle cx="60" cy="18" r="14" stroke="url(#hookMetal)" stroke-width="7" fill="none"/>
+        <circle cx="60" cy="18" r="6" fill="#0A1329"/>
+
+        <!-- Upper Shank -->
+        <path d="M60 32 L60 70" stroke="url(#hookMetal)" stroke-width="12" stroke-linecap="round"/>
+
+        <!-- The Human Dot (Symbolizing the Candidate / Talent) -->
+        <circle class="hook-person-dot" cx="84" cy="92" r="10" fill="url(#coralGlow)"/>
+
+        <!-- Deep Fishing Hook Bend & Sharp Barb -->
+        <path d="M60 70 C 60 140, 20 156, 20 115 C 20 90, 52 82, 54 100 C 55 106, 50 115, 42 114" 
+              stroke="url(#hookMetal)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" filter="url(#hookShadow)"/>
+        
+        <!-- Sharp Barb Point -->
+        <polygon points="53,92 58,103 48,104" fill="#8BB5FF"/>
+      </svg>
+      
+      <div class="hook-bait-pill" id="hook-bait-pill">
+        <span class="hook-bait-text text-en">Hooking Match...</span>
+        <span class="hook-bait-text text-ar">جاري الاصطياد...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Slide Navigation Rail / Dots on Right Side -->
+  <nav class="slide-nav-rail" aria-label="Slide Selector">
+    <div class="rail-line"></div>
+    <button class="rail-dot active" data-slide="0" title="1. Vision & Identity">
+      <span class="dot-number">01</span>
+      <span class="dot-tooltip text-en">Vision & Philosophy</span>
+      <span class="dot-tooltip text-ar">الرؤية والهوية</span>
+    </button>
+    <button class="rail-dot" data-slide="1" title="2. The Dual Verification">
+      <span class="dot-number">02</span>
+      <span class="dot-tooltip text-en">Dual Verified Badges</span>
+      <span class="dot-tooltip text-ar">شارات التوثيق الثنائية</span>
+    </button>
+    <button class="rail-dot" data-slide="2" title="3. The Platform Engine">
+      <span class="dot-number">03</span>
+      <span class="dot-tooltip text-en">Match Engine & Closed Pool</span>
+      <span class="dot-tooltip text-ar">محرك التطابق والمجتمع</span>
+    </button>
+    <button class="rail-dot" data-slide="3" title="4. Soft Launch Traction">
+      <span class="dot-number">04</span>
+      <span class="dot-tooltip text-en">Launch Data & Event Results</span>
+      <span class="dot-tooltip text-ar">نتائج الإطلاق والحدث</span>
+    </button>
+    <button class="rail-dot" data-slide="4" title="5. 200k EGP Budget">
+      <span class="dot-number">05</span>
+      <span class="dot-tooltip text-en">Budget Breakdown (200k EGP)</span>
+      <span class="dot-tooltip text-ar">توزيع الميزانية (200 ألف)</span>
+    </button>
+    <button class="rail-dot" data-slide="5" title="6. Monetization & Sales">
+      <span class="dot-number">06</span>
+      <span class="dot-tooltip text-en">Monetization & Subscriptions</span>
+      <span class="dot-tooltip text-ar">نموذج الدخل والاشتراكات</span>
+    </button>
+    <button class="rail-dot" data-slide="6" title="7. Brand Guidelines & Assets">
+      <span class="dot-number">07</span>
+      <span class="dot-tooltip text-en">Brand Identity & Visuals</span>
+      <span class="dot-tooltip text-ar">الهوية البصرية والمودبورد</span>
+    </button>
+    <button class="rail-dot" data-slide="7" title="8. Roadmap & Next Horizon">
+      <span class="dot-number">08</span>
+      <span class="dot-tooltip text-en">Roadmap & Call to Action</span>
+      <span class="dot-tooltip text-ar">خريطة الطريق والتواصل</span>
+    </button>
+  </nav>
+
+  <!-- Presentation Viewport Container -->
+  <main class="presentation-wrapper" id="deck-container">
+
+    <!-- ==================== SLIDE 1: GENESIS & BRAND PHILOSOPHY ==================== -->
+    <section class="slide-section active" id="slide-0" data-index="0" data-title-en="Vision & Philosophy" data-title-ar="الرؤية وفلسفة الصنارة">
+      <div class="slide-content hero-slide">
+        <div class="hero-grid">
+          
+          <div class="hero-text-col">
+            <div class="category-tag">
+              <span class="hook-emoji">🎣</span>
+              <span class="text-en">THE GENESIS OF SENARA</span>
+              <span class="text-ar">نشأة وانطلاقة صنارة</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="text-en">A Hook, <br><span class="accent-coral">Not A Net.</span></span>
+              <span class="text-ar">صنـارة.. <br><span class="accent-coral">مش شبكة.</span></span>
+            </h1>
+
+            <p class="hero-subtitle">
+              <span class="text-en">
+                In Arabic, <strong>Senara (صنارة)</strong> means fishing rod and hook. Traditional hiring casts a wide, sloppy net—catching heaps of irrelevant noise. Senara is patient, calculated, and aimed precisely at the <em>exact right catch</em>.
+              </span>
+              <span class="text-ar">
+                اسم <strong>صنارة</strong> مستوحى من فكرة الصيد الاحترافي؛ التوظيف التقليدي بيرمي "شبكة" واسعة في البحر فبيطلع معاه ركام وسير ذاتية غير مؤهلة. صنارة مصممة بدقة تصطاد لك "المرشح الصح" وتوصل الكفاءة بالفرصة المناسبة بدون عشوائية.
+              </span>
+            </p>
+
+            <div class="hero-key-points">
+              <div class="point-pill">
+                <span class="point-icon">🎯</span>
+                <div>
+                  <h4 class="text-en">Precision Matching</h4>
+                  <h4 class="text-ar">تطابق فائق الدقة</h4>
+                  <p class="text-en">No resume spam or algorithmic clutter</p>
+                  <p class="text-ar">بدون ركام سير ذاتية مكررة</p>
+                </div>
+              </div>
+              <div class="point-pill">
+                <span class="point-icon">🛡️</span>
+                <div>
+                  <h4 class="text-en">Dual Verified Ecosystem</h4>
+                  <h4 class="text-ar">توثيق ثنائي معتمد</h4>
+                  <p class="text-en">Green verified talent + Blue verified companies</p>
+                  <p class="text-ar">علامة خضراء للمرشحين وزرقاء للشركات</p>
+                </div>
+              </div>
+              <div class="point-pill">
+                <span class="point-icon">⚡</span>
+                <div>
+                  <h4 class="text-en">Direct Connection</h4>
+                  <h4 class="text-ar">تواصل مباشر فوري</h4>
+                  <p class="text-en">Direct chat without recruiting middlemen</p>
+                  <p class="text-ar">محادثة حرة مباشرة بدون وسطاء</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="https://www.senaraa.com" target="_blank" rel="noopener" class="btn btn-primary">
+                <span class="text-en">Visit senaraa.com</span>
+                <span class="text-ar">زيارة منصة senaraa.com</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <button class="btn btn-secondary next-slide-trigger">
+                <span class="text-en">Explore The Model &rarr;</span>
+                <span class="text-ar">استكشف النموذج &larr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="brand-spotlight-card">
+              <div class="spotlight-header">
+                <div class="connection-eyelet-badge">
+                  <span class="eyelet-ring"></span>
+                  <span class="text-en">Top Eyelet: The Connection Point</span>
+                  <span class="text-ar">حلقة الصنارة: نقطة اللقاء</span>
+                </div>
+                <span class="live-pill">v1.0 Soft Launched</span>
+              </div>
+              <div class="spotlight-image-wrapper">
+                <img src="assets/hook-3d.jpg" alt="The 3D Senara Hook" class="spotlight-img">
+                <div class="floating-quote">
+                  <p class="quote-text text-en">"Aim for the one right match, instead of casting wide and hoping."</p>
+                  <p class="quote-text text-ar">"اصطاد الكفاءة المناسبة، بدل ما ترمي شبكة وتنتظر الحظ."</p>
+                  <span class="quote-sub">— Senara Brand Architecture</span>
+                </div>
+              </div>
+              <div class="quick-stats-strip">
+                <div class="stat-cell">
+                  <span class="stat-val">100%</span>
+                  <span class="stat-lbl text-en">Direct Contact</span>
+                  <span class="stat-lbl text-ar">تواصل مباشر</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-val">0 EGP</span>
+                  <span class="stat-lbl text-en">Free for Seekers</span>
+                  <span class="stat-lbl text-ar">مجاني للمرشحين</span>
+                </div>
+                <div class="stat-cell">
+                  <span class="stat-val">41+</span>
+                  <span class="stat-lbl text-en">Event Apps</span>
+                  <span class="stat-lbl text-ar">طلبات أولية</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 2: THE DUAL VERIFIED BADGE SYSTEM ==================== -->
+    <section class="slide-section" id="slide-1" data-index="1" data-title-en="Dual Verification" data-title-ar="منظومة التوثيق الثنائية">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">🛡️</span>
+            <span class="text-en">CORE INNOVATION: TRUST ARCHITECTURE</span>
+            <span class="text-ar">الابتكار الأساسي: هندسة الثقة</span>
+          </div>
+          <h2>
+            <span class="text-en">The Two Badges That <span class="accent-royal">Eliminate Friction</span></span>
+            <span class="text-ar">شارتان معتمدتان <span class="accent-royal">تقضيان على فوضى التوظيف</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">Hiring fails because companies don't trust applicant claims, and job seekers fear fake ghost job posts. Senara solves both ends with rigorous dual verification.</span>
+            <span class="text-ar">يفشل التوظيف التقليدي لأن الشركات تخشى السير الذاتية الوهمية، والباحثون يخشون إعلانات الوظائف الاحتيالية. صنارة تحسم المعادلة بنظام تحقق ثنائي متكامل.</span>
+          </p>
+        </div>
+
+        <!-- Interactive Badge Comparison Cards -->
+        <div class="dual-badges-container">
+          
+          <!-- Green Badge: For Job Seekers -->
+          <div class="badge-card seeker-card">
+            <div class="card-glow green-glow"></div>
+            <div class="badge-card-header">
+              <div class="badge-emblem green-emblem">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" fill="#10B981" fill-opacity="0.2" stroke="#10B981" stroke-width="2"/>
+                  <path d="M7 12.5l3.5 3.5 7-7" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="badge-info">
+                  <span class="badge-type">JOB SEEKER</span>
+                  <h3 class="badge-title text-en">Green Verified Badge</h3>
+                  <h3 class="badge-title text-ar">شارة التوثيق الخضراء</h3>
+                </div>
+              </div>
+              <span class="badge-status-pill green-pill text-en">Verified Talent</span>
+              <span class="badge-status-pill green-pill text-ar">كفاءة معتمدة</span>
+            </div>
+
+            <div class="card-body">
+              <p class="card-desc text-en">Granted only after a candidate completes 100% of their profile, verifies identity, passes skill portfolio checks, and gets vetted by the Senara auditing team.</p>
+              <p class="card-desc text-ar">تُمنح للمرشح فقط بعد اكتمال ملفه 100%، والتحقق من الهوية، وتدقيق النماذج السابقة والمشاريع من قِبل فريق صنارة المعتمد.</p>
+
+              <div class="checklist">
+                <div class="check-item">
+                  <span class="check-icon green-check">&check;</span>
+                  <span class="text-en">Portfolio & Case Studies Authenticated</span>
+                  <span class="text-ar">معاينة وتوثيق سابقة الأعمال والمشاريع</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon green-check">&check;</span>
+                  <span class="text-en">Bilingual Profile (Arabic & English) Ready</span>
+                  <span class="text-ar">ملف شخصي ثنائي اللغة (عربي وإنجليزي)</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon green-check">&check;</span>
+                  <span class="text-en">Direct Employer Outreach with 1-Click "View Profile"</span>
+                  <span class="text-ar">ظهور فوري للشركات وزر مباشر "عرض الملف"</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon green-check">&check;</span>
+                  <span class="text-en">Priority Ranking in Company Talent Search</span>
+                  <span class="text-ar">أولوية الظهور في نتائج بحث الشركات</span>
+                </div>
+              </div>
+
+              <!-- Interactive Candidate Mock Card -->
+              <div class="mock-profile-preview">
+                <div class="mock-avatar">
+                  <span>CA</span>
+                  <span class="mock-green-badge" title="Green Verified">&check;</span>
+                </div>
+                <div class="mock-meta">
+                  <div class="mock-name">Christian Ayman <span class="verified-text-green">Verified</span></div>
+                  <div class="mock-role">Senior Full-Stack Engineer &bull; Cairo</div>
+                  <div class="mock-tags">
+                    <span class="mini-tag">React</span>
+                    <span class="mini-tag">Node.js</span>
+                    <span class="mini-tag">Cloud</span>
+                  </div>
+                </div>
+                <button class="mock-hire-btn text-en">Chat Direct</button>
+                <button class="mock-hire-btn text-ar">محادثة مباشرة</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blue Badge: For Businesses -->
+          <div class="badge-card business-card">
+            <div class="card-glow blue-glow"></div>
+            <div class="badge-card-header">
+              <div class="badge-emblem blue-emblem">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" fill="#3B82F6" fill-opacity="0.2" stroke="#3B82F6" stroke-width="2"/>
+                  <path d="M7 12.5l3.5 3.5 7-7" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="badge-info">
+                  <span class="badge-type">BUSINESS & EMPLOYER</span>
+                  <h3 class="badge-title text-en">Blue Verified Badge</h3>
+                  <h3 class="badge-title text-ar">شارة التوثيق الزرقاء</h3>
+                </div>
+              </div>
+              <span class="badge-status-pill blue-pill text-en">Legitimate Entity</span>
+              <span class="badge-status-pill blue-pill text-ar">كيان رسمي معتمد</span>
+            </div>
+
+            <div class="card-body">
+              <p class="card-desc text-en">Granted to registered corporations, recognized startups, and verified businesses that submit valid commercial registry, tax records, and authenticated hiring authorities.</p>
+              <p class="card-desc text-ar">تُمنح للمؤسسات والشركات المسجلة رسمياً بعد مراجعة السجل التجاري والبطاقة الضريبية والتأكد من هوية مسؤولي التوظيف لضمان مصداقية الفرص.</p>
+
+              <div class="checklist">
+                <div class="check-item">
+                  <span class="check-icon blue-check">&check;</span>
+                  <span class="text-en">Commercial Registration & Tax ID Verified</span>
+                  <span class="text-ar">التوثيق بالسجل التجاري والرقم الضريبي الرسمي</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon blue-check">&check;</span>
+                  <span class="text-en">Zero Ghost Jobs — Guaranteed Authentic Openings</span>
+                  <span class="text-ar">حماية تامة من الإعلانات الوهمية أو جمع السير دون توظيف</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon blue-check">&check;</span>
+                  <span class="text-en">Access to Direct Hunter Search & Match Scores</span>
+                  <span class="text-ar">أحقية استخدام محرك اصطياد الكفاءات ومطابقة المهارات</span>
+                </div>
+                <div class="check-item">
+                  <span class="check-icon blue-check">&check;</span>
+                  <span class="text-en">Employer Branding Spotlight on Homepage</span>
+                  <span class="text-ar">إبراز هوية الشركة في صدارة المنصة والصفحة الرئيسية</span>
+                </div>
+              </div>
+
+              <!-- Interactive Company Mock Card -->
+              <div class="mock-company-preview">
+                <div class="mock-company-logo">
+                  <span>🏢</span>
+                  <span class="mock-blue-badge" title="Blue Verified">&check;</span>
+                </div>
+                <div class="mock-meta">
+                  <div class="mock-name">Delta Tech Solutions <span class="verified-text-blue">Registered</span></div>
+                  <div class="mock-role">Fintech &bull; 150+ Employees &bull; Cairo HQ</div>
+                  <div class="mock-badge-line">
+                    <span class="status-indicator-dot"></span>
+                    <span class="text-en">Actively Fishing for Talent</span>
+                    <span class="text-ar">تصطاد كفاءات نشطة الآن</span>
+                  </div>
+                </div>
+                <div class="mock-score-chip">98% Trust</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 3: THE ENGINE - MATCH SCORE & CLOSED POOL ==================== -->
+    <section class="slide-section" id="slide-2" data-index="2" data-title-en="The Engine" data-title-ar="محرك التطابق والمجتمع">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">⚙️</span>
+            <span class="text-en">PRECISION MECHANICS</span>
+            <span class="text-ar">آلية الاصطياد والذكاء</span>
+          </div>
+          <h2>
+            <span class="text-en">Smart Match Score & <span class="accent-coral">Closed Community Pool</span></span>
+            <span class="text-ar">مؤشر التوافق الذكي <span class="accent-coral">وحوض الكفاءات المغلق</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">How Senara bridges the gap: a closed, high-trust talent pool that tests and refines the model before expanding openly across the region.</span>
+            <span class="text-ar">كيف تسد صنارة فجوة التوظيف: بدء الانطلاق عبر حوض كفاءات مغلق وعالي الثقة، واختبار التوافق قبل فتح المنصة لكافة أنحاء المنطقة.</span>
+          </p>
+        </div>
+
+        <div class="engine-grid">
+          
+          <!-- Left: The Closed Pool Strategic Progression -->
+          <div class="pool-strategy-card">
+            <h3 class="card-subtitle text-en">The "Closed Pool" Strategy</h3>
+            <h3 class="card-subtitle text-ar">استراتيجية "الحوض المغلق" ثم التوسع</h3>
+            <p class="pool-desc text-en">
+              Instead of launching to the wild where junk data degrades quality, Senara kicked off within a tight, trusted community network (corporate partners, church referral hub, professional alumni) ensuring every single profile is hand-curated.
+            </p>
+            <p class="pool-desc text-ar">
+              بدلاً من فتح الباب عشوائياً للجميع وتراكم البيانات الرديئة، بدأت صنارة بشبكة مجتمعية موثوقة (برنامج الإحالات الكنسية، ملتقى رجال الأعمال، الشركاء المؤسسيين) لضمان أن كل ملف تم تدقيقه بعناية قبل الانطلاق العام.
+            </p>
+
+            <div class="timeline-phases">
+              <div class="phase-step completed">
+                <div class="phase-badge">Phase 1</div>
+                <div class="phase-info">
+                  <h4 class="text-en">Closed Community Pool</h4>
+                  <h4 class="text-ar">الحوض المغلق الموثق</h4>
+                  <p class="text-en">Curated referrals, live event testing, 41 initial cohort applications.</p>
+                  <p class="text-ar">إحالات منتقاة، تدقيق فردي، 41 طلباً في يوم رجال الأعمال.</p>
+                </div>
+              </div>
+              <div class="phase-step active-phase">
+                <div class="phase-badge">Phase 2 (Current)</div>
+                <div class="phase-info">
+                  <h4 class="text-en">Curated Employer Invitation</h4>
+                  <h4 class="text-ar">انضمام الشركات المختارة</h4>
+                  <p class="text-en">Blue verification onboarding for verified corporate employers & direct chats.</p>
+                  <p class="text-ar">توثيق الشركات الزرقاء وإتاحة التواصل المباشر مع المرشحين.</p>
+                </div>
+              </div>
+              <div class="phase-step upcoming">
+                <div class="phase-badge">Phase 3</div>
+                <div class="phase-info">
+                  <h4 class="text-en">Open Regional Rollout</h4>
+                  <h4 class="text-ar">الانفتاح الإقليمي الموسع</h4>
+                  <p class="text-en">Full open registration while preserving algorithmic verification gates.</p>
+                  <p class="text-ar">فتح التسجيل للجمهور مع الحفاظ على صرامة بوابات التوثيق الذكية.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Match Score Simulator -->
+          <div class="match-simulator-card">
+            <div class="sim-header">
+              <div class="sim-title">
+                <span class="sim-icon">⚡</span>
+                <span class="text-en">Interactive Match Score Simulator</span>
+                <span class="text-ar">محاكي مؤشر التوافق التفاعلي</span>
+              </div>
+              <span class="sim-live-label">LIVE ENGINE</span>
+            </div>
+
+            <p class="sim-caption text-en">Adjust candidate parameters to experience how Senara's hook algorithm calculates precision fit:</p>
+            <p class="sim-caption text-ar">حرّك المعايير لتجربة كيف تحسب خوارزمية صنارة نسبة التوافق بين الباحث والوظيفة:</p>
+
+            <div class="sim-controls">
+              
+              <div class="control-row">
+                <div class="label-row">
+                  <span class="text-en">Core Skills & Stack Match</span>
+                  <span class="text-ar">توافق المهارات والتقنيات</span>
+                  <span id="skill-val" class="slider-val">85%</span>
+                </div>
+                <input type="range" id="skill-slider" min="30" max="100" value="85" class="senara-slider">
+              </div>
+
+              <div class="control-row">
+                <div class="label-row">
+                  <span class="text-en">Verified Portfolio Quality</span>
+                  <span class="text-ar">جودة سابقة الأعمال الموثقة</span>
+                  <span id="portfolio-val" class="slider-val">90%</span>
+                </div>
+                <input type="range" id="portfolio-slider" min="30" max="100" value="90" class="senara-slider">
+              </div>
+
+              <div class="control-row">
+                <div class="label-row">
+                  <span class="text-en">Experience & Seniority Fit</span>
+                  <span class="text-ar">مستوى وسنوات الخبرة</span>
+                  <span id="exp-val" class="slider-val">75%</span>
+                </div>
+                <input type="range" id="exp-slider" min="30" max="100" value="75" class="senara-slider">
+              </div>
+
+              <div class="control-row">
+                <div class="label-row">
+                  <span class="text-en">Location / Commute Preference</span>
+                  <span class="text-ar">الموقع الجغرافي / العمل عن بعد</span>
+                  <span id="location-val" class="slider-val">95%</span>
+                </div>
+                <input type="range" id="location-slider" min="30" max="100" value="95" class="senara-slider">
+              </div>
+
+            </div>
+
+            <!-- Dynamic Result Gauge -->
+            <div class="sim-output-box">
+              <div class="match-dial-wrapper">
+                <svg class="dial-svg" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" class="dial-bg"></circle>
+                  <circle cx="50" cy="50" r="42" class="dial-fill" id="dial-fill-circle"></circle>
+                </svg>
+                <div class="dial-center">
+                  <span id="match-percent-display" class="dial-number">88%</span>
+                  <span class="dial-label text-en">MATCH</span>
+                  <span class="dial-label text-ar">توافق</span>
+                </div>
+              </div>
+              <div class="dial-feedback">
+                <h4 id="match-verdict-title" class="verdict-title text-en">High Affinity Match 🎯</h4>
+                <h4 id="match-verdict-title-ar" class="verdict-title text-ar">توافق استثنائي فائق 🎯</h4>
+                <p id="match-verdict-text" class="verdict-text text-en">The hook is locked. Both parties receive an instant notification with verified credentials to initiate direct encrypted chat.</p>
+                <p id="match-verdict-text-ar" class="verdict-text text-ar">الصنارة التقطت الهدف بنجاح! يتم إشعار الطرفين ببيانات موثقة لبدء محادثة مباشرة فوراً.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 4: SOFT LAUNCH & EVENT ANALYSIS (FROM PDF) ==================== -->
+    <section class="slide-section" id="slide-3" data-index="3" data-title-en="Soft Launch Traction" data-title-ar="نتائج وبيانات الإطلاق">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">📊</span>
+            <span class="text-en">REAL DATABASE RESULTS & TRACTION</span>
+            <span class="text-ar">أرقام وإحصائيات الإطلاق الحقيقية</span>
+          </div>
+          <h2>
+            <span class="text-en">Soft Launch Data: <span class="accent-royal">Business Men Day</span></span>
+            <span class="text-ar">بيانات الإطلاق الأولي: <span class="accent-royal">يوم رجال الأعمال</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">Live data straight from the Senara database & administrative dashboard, proving immediate engagement during our soft launch rollout.</span>
+            <span class="text-ar">أرقام حية مباشرة من قاعدة بيانات صنارة ولوحة الإدارة، توضح التفاعل والنتائج الفعلية خلال مرحلة الإطلاق الأولي.</span>
+          </p>
+        </div>
+
+        <!-- Metric KPI Cards Grid -->
+        <div class="kpi-cards-grid">
+          <div class="kpi-card accent-card">
+            <div class="kpi-icon-wrap">📋</div>
+            <div class="kpi-number">41</div>
+            <div class="kpi-title text-en">Total Applications</div>
+            <div class="kpi-title text-ar">إجمالي الطلبات المسجلة</div>
+            <div class="kpi-sub text-en">At Business Men Day Soft Launch</div>
+            <div class="kpi-sub text-ar">خلال ملتقى يوم رجال الأعمال</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap">🏢</div>
+            <div class="kpi-number">9</div>
+            <div class="kpi-title text-en">Registered Companies</div>
+            <div class="kpi-title text-ar">شركات ومؤسسات مسجلة</div>
+            <div class="kpi-sub text-en">Active Employers seeking verified talent</div>
+            <div class="kpi-sub text-ar">أصحاب أعمال يبحثون عن كفاءات موثقة</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap">👤</div>
+            <div class="kpi-number">32+</div>
+            <div class="kpi-title text-en">Job Seekers</div>
+            <div class="kpi-title text-ar">باحثون عن عمل في الكوهورت</div>
+            <div class="kpi-sub text-en">6 live candidate CVs showcased on homepage</div>
+            <div class="kpi-sub text-ar">6 سير ذاتية معتمدة معروضة بالصفحة الأولى</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-icon-wrap">📱</div>
+            <div class="kpi-number">71</div>
+            <div class="kpi-title text-en">Total QR Scans</div>
+            <div class="kpi-title text-ar">إجمالي مسحات الـ QR</div>
+            <div class="kpi-sub text-en">Captured directly during the event</div>
+            <div class="kpi-sub text-ar">تم جمعها وتتبعها خلال فعاليات الحدث</div>
+          </div>
+        </div>
+
+        <!-- Event Analysis Deep Dive (QR Split & Church Bulk Hub) -->
+        <div class="event-details-grid">
+          
+          <!-- QR Distribution Analysis -->
+          <div class="detail-card">
+            <h3 class="detail-title">
+              <span class="text-en">QR Conversion Channels</span>
+              <span class="text-ar">قنوات وتوزيع مسحات الـ QR (71 مسحة)</span>
+            </h3>
+            
+            <div class="qr-chart-bars">
+              <div class="qr-bar-item">
+                <div class="bar-label-group">
+                  <span class="bar-name text-en">Direct Website</span>
+                  <span class="bar-name text-ar">الموقع المباشر</span>
+                  <span class="bar-stat">50 Scans (70%)</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill fill-blue" style="width: 70%;"></div></div>
+              </div>
+
+              <div class="qr-bar-item">
+                <div class="bar-label-group">
+                  <span class="bar-name text-en">LinkedIn & Socials (X)</span>
+                  <span class="bar-name text-ar">لينكد إن ومنصات التواصل</span>
+                  <span class="bar-stat">12 Scans (17%)</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill fill-coral" style="width: 17%;"></div></div>
+              </div>
+
+              <div class="qr-bar-item">
+                <div class="bar-label-group">
+                  <span class="bar-name text-en">Just Scan / On-Site Badge</span>
+                  <span class="bar-name text-ar">المسح الميداني المباشر</span>
+                  <span class="bar-stat">9 Scans (13%)</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill fill-cyan" style="width: 13%;"></div></div>
+              </div>
+            </div>
+
+            <div class="qr-summary-box">
+              <span class="math-eq">50 + 12 + 9 = 71 Total Verified Scans</span>
+              <p class="text-en">High 70% direct conversion proves attendees immediately engaged with the web application upon scanning.</p>
+              <p class="text-ar">تحويل 70% للموقع مباشرة يثبت تفاعل الحاضرين الفوري مع منصة الويب بمجرد مسح الكود.</p>
+            </div>
+          </div>
+
+          <!-- Community Hub & Bulk Excel Import (From Page 5 of PDF) -->
+          <div class="detail-card">
+            <h3 class="detail-title">
+              <span class="text-en">Referral Hub & Bulk Dataset Import</span>
+              <span class="text-ar">منظومة الإحالات والاستيراد الجماعي للملفات</span>
+            </h3>
+
+            <p class="detail-text text-en">
+              To empower community partners, churches, and associations, Senara deployed a high-speed bulk ingestion tool:
+            </p>
+            <p class="detail-text text-ar">
+              لتمكين الشركاء والجمعيات والكنائس من إدخال بيانات مرشحيهم بسرعة، طورت صنارة أداة الاستيراد الجماعي:
+            </p>
+
+            <div class="hub-features">
+              <div class="hub-item">
+                <span class="hub-bullet">📁</span>
+                <div>
+                  <h4 class="text-en">Official Excel & CSV Templates</h4>
+                  <h4 class="text-ar">قوالب إكسل و CSV قياسية معتمدة</h4>
+                  <p class="text-en">Pre-formatted templates for Seekers (.xlsx) & Employers (.xlsx)</p>
+                  <p class="text-ar">قوالب خاصة جاهزة لرفع الباحثين عن عمل والشركات دفعة واحدة</p>
+                </div>
+              </div>
+              <div class="hub-item">
+                <span class="hub-bullet">⚡</span>
+                <div>
+                  <h4 class="text-en">Automated Onboarding Invites</h4>
+                  <h4 class="text-ar">دعوات بريد إلكتروني آلية فورية</h4>
+                  <p class="text-en">Instant password-setup email sent the moment a spreadsheet is uploaded</p>
+                  <p class="text-ar">إرسال رابط إنشاء كلمة المرور للمرشح فور رفع ملفه تلقائياً</p>
+                </div>
+              </div>
+              <div class="hub-item">
+                <span class="hub-bullet">📈</span>
+                <div>
+                  <h4 class="text-en">Referral Activation KPIs</h4>
+                  <h4 class="text-ar">لوحة قياس مؤشرات التفعيل والنجاح</h4>
+                  <p class="text-en">Real-time tracking of referred candidates, business matches, and placement rates</p>
+                  <p class="text-ar">تتبع معدلات التفعيل ونسب توظيف المرشحين المحالين لكل جهة شريكة</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 5: BUDGET EXECUTION (200,000 EGP) ==================== -->
+    <section class="slide-section" id="slide-4" data-index="4" data-title-en="Budget Breakdown" data-title-ar="توزيع ميزانية الـ 200 ألف جنيه">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">💰</span>
+            <span class="text-en">CAPITAL EFFICIENCY</span>
+            <span class="text-ar">الكفاءة المالية وترشيد الإنفاق</span>
+          </div>
+          <h2>
+            <span class="text-en">Seed Budget Breakdown: <span class="accent-coral">200,000 EGP</span></span>
+            <span class="text-ar">توزيع الميزانية الاستثمارية: <span class="accent-coral">200 ألف جنيه مصري</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">Disciplined capital allocation across technical development, brand design, cloud infrastructure, and community marketing.</span>
+            <span class="text-ar">توزيع دقيق ومدروس للميزانية يغطي البرمجة والتطوير، التصميم والهوية، الخوادم السحابية، والتسويق والإطلاق.</span>
+          </p>
+        </div>
+
+        <div class="budget-layout">
+          
+          <!-- Interactive Visual Donut Chart -->
+          <div class="donut-card">
+            <div class="donut-chart-container">
+              <svg class="donut-svg" viewBox="0 0 200 200">
+                <!-- Segment 1: Software & Dev 40% (80k) -> dasharray: 188.5, 282.7 -->
+                <circle cx="100" cy="100" r="75" class="donut-segment seg-dev" stroke-dasharray="188.5 471.2" stroke-dashoffset="0"></circle>
+                <!-- Segment 2: Design & UI 22.5% (45k) -> dasharray: 106.0, offset: -188.5 -->
+                <circle cx="100" cy="100" r="75" class="donut-segment seg-design" stroke-dasharray="106.0 471.2" stroke-dashoffset="-188.5"></circle>
+                <!-- Segment 3: Marketing & Launch 20% (40k) -> dasharray: 94.2, offset: -294.5 -->
+                <circle cx="100" cy="100" r="75" class="donut-segment seg-marketing" stroke-dasharray="94.2 471.2" stroke-dashoffset="-294.5"></circle>
+                <!-- Segment 4: Hosting & Cloud 17.5% (35k) -> dasharray: 82.5, offset: -388.7 -->
+                <circle cx="100" cy="100" r="75" class="donut-segment seg-hosting" stroke-dasharray="82.5 471.2" stroke-dashoffset="-388.7"></circle>
+              </svg>
+              <div class="donut-center-info">
+                <span class="donut-total">200K</span>
+                <span class="donut-curr">EGP</span>
+                <span class="donut-lbl text-en">Total Seed Budget</span>
+                <span class="donut-lbl text-ar">إجمالي الميزانية</span>
+              </div>
+            </div>
+            <div class="donut-legend">
+              <div class="legend-item"><span class="legend-color dev-color"></span> Software & Dev (40%)</div>
+              <div class="legend-item"><span class="legend-color design-color"></span> Design & UI/UX (22.5%)</div>
+              <div class="legend-item"><span class="legend-color mkt-color"></span> Launch & Events (20%)</div>
+              <div class="legend-item"><span class="legend-color host-color"></span> Cloud & Hosting (17.5%)</div>
+            </div>
+          </div>
+
+          <!-- Itemized Breakdown Cards -->
+          <div class="budget-items-list">
+            
+            <div class="budget-row-card">
+              <div class="row-left">
+                <div class="budget-icon dev-icon">💻</div>
+                <div>
+                  <h4 class="budget-item-title text-en">Software & Full-Stack Development</h4>
+                  <h4 class="budget-item-title text-ar">البرمجة وتطوير المنصة والبنية التقنية</h4>
+                  <p class="budget-item-desc text-en">Database architecture, match score algorithms, admin portal, direct messaging engine, bulk import tools.</p>
+                  <p class="budget-item-desc text-ar">بناء قواعد البيانات، خوارزميات التوافق، لوحة التحكم، نظام المحادثة المباشرة، وأداة الرفع الجماعي.</p>
+                </div>
+              </div>
+              <div class="row-right">
+                <span class="budget-amount">80,000 EGP</span>
+                <span class="budget-percent">40.0%</span>
+              </div>
+            </div>
+
+            <div class="budget-row-card">
+              <div class="row-left">
+                <div class="budget-icon design-icon">🎨</div>
+                <div>
+                  <h4 class="budget-item-title text-en">Brand Identity & UI/UX Design System</h4>
+                  <h4 class="budget-item-title text-ar">الهوية البصرية وتصميم تجربة وواجهة المستخدم</h4>
+                  <p class="budget-item-desc text-en">Senara hook logo creation, full 3D visual assets, responsive mobile UI/UX, Arabic/English typography & component library.</p>
+                  <p class="budget-item-desc text-ar">تصميم شعار الصنارة، الأصول ثلاثية الأبعاد، واجهات الهاتف الذكية، وتطوير الخطوط ونظام التصميم.</p>
+                </div>
+              </div>
+              <div class="row-right">
+                <span class="budget-amount">45,000 EGP</span>
+                <span class="budget-percent">22.5%</span>
+              </div>
+            </div>
+
+            <div class="budget-row-card">
+              <div class="row-left">
+                <div class="budget-icon mkt-icon">📣</div>
+                <div>
+                  <h4 class="budget-item-title text-en">Marketing, Launch Event & Partnerships</h4>
+                  <h4 class="budget-item-title text-ar">التسويق، فعالية الإطلاق، وتفعيل الشراكات</h4>
+                  <p class="budget-item-desc text-en">Business Men Day event presence, printed QR flyers, sponsor banners, church referral kits, initial candidate acquisition.</p>
+                  <p class="budget-item-desc text-ar">المشاركة في يوم رجال الأعمال، بطاقات الـ QR المطبوعة، البانرات الترويجية، وجذب الكوهورت الأول.</p>
+                </div>
+              </div>
+              <div class="row-right">
+                <span class="budget-amount">40,000 EGP</span>
+                <span class="budget-percent">20.0%</span>
+              </div>
+            </div>
+
+            <div class="budget-row-card">
+              <div class="row-left">
+                <div class="budget-icon host-icon">☁️</div>
+                <div>
+                  <h4 class="budget-item-title text-en">Cloud Infrastructure, Hosting & Security</h4>
+                  <h4 class="budget-item-title text-ar">الاستضافة السحابية، البنية التحتية وحماية البيانات</h4>
+                  <p class="budget-item-desc text-en">Domain licensing (senaraa.com), SSL certificates, high-availability servers, CDN, database backup and encryption.</p>
+                  <p class="budget-item-desc text-ar">تراخيص النطاق senaraa.com، شهادات الأمان SSL، خوادم سحابية عالية الاستجابة، النسخ الاحتياطي والتشفير.</p>
+                </div>
+              </div>
+              <div class="row-right">
+                <span class="budget-amount">35,000 EGP</span>
+                <span class="budget-percent">17.5%</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: MONETIZATION & SALES STRATEGY ==================== -->
+    <section class="slide-section" id="slide-5" data-index="5" data-title-en="Monetization & Sales" data-title-ar="نموذج الإيرادات والمبيعات">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">💼</span>
+            <span class="text-en">BUSINESS MODEL & REVENUE STREAMS</span>
+            <span class="text-ar">نموذج العمل وتوليد الإيرادات</span>
+          </div>
+          <h2>
+            <span class="text-en">How We Sell It: <span class="accent-royal">Three Scalable Streams</span></span>
+            <span class="text-ar">كيف نبيع ونربح: <span class="accent-royal">3 مسارات تدفق نقدي متصاعدة</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">100% Free for Job Seekers to guarantee unmatched talent volume. Revenue is generated purely from corporate subscriptions, premium banner ads, and B2B digital add-ons.</span>
+            <span class="text-ar">مجاني تماماً 100% للمرشحين والباحثين لجذب أفضل الكفاءات. وتتحقق الأرباح حصرياً من اشتراكات الشركات، الإعلانات المميزة، وحزم الخدمات الإضافية.</span>
+          </p>
+        </div>
+
+        <div class="monetization-grid">
+          
+          <!-- Stream 1: Company Subscriptions -->
+          <div class="revenue-stream-card">
+            <div class="stream-badge stream-1">STREAM 01</div>
+            <h3 class="stream-title text-en">Company Subscription Tiers</h3>
+            <h3 class="stream-title text-ar">اشتراكات الشركات (باقات شهرية/سنوية)</h3>
+            <p class="stream-desc text-en">Businesses pay monthly or annual access for precision hiring tools and verified candidate pools.</p>
+            <p class="stream-desc text-ar">تدفع الشركات اشتراكاً دورياً لاستخدام أدوات الصيد الذكية والوصول المباشر للمرشحين الموثقين.</p>
+
+            <div class="pricing-tiers-mini">
+              <div class="tier-box">
+                <div class="tier-name">Starter Hook</div>
+                <div class="tier-price">0 EGP <span class="period">/ 14d Trial</span></div>
+                <ul class="tier-features">
+                  <li>1 Active Job Post</li>
+                  <li>3 Verified Chats</li>
+                  <li>Standard Search</li>
+                </ul>
+              </div>
+              <div class="tier-box popular-tier">
+                <div class="pop-tag">MOST POPULAR</div>
+                <div class="tier-name">Pro Angler</div>
+                <div class="tier-price">3,500 EGP <span class="period">/ month</span></div>
+                <ul class="tier-features">
+                  <li>Unlimited Active Jobs</li>
+                  <li>Direct Hunter Chat</li>
+                  <li>Blue Verified Company Badge</li>
+                  <li>Match Score Engine</li>
+                </ul>
+              </div>
+              <div class="tier-box">
+                <div class="tier-name">Enterprise Fleet</div>
+                <div class="tier-price">8,500 EGP <span class="period">/ month</span></div>
+                <ul class="tier-features">
+                  <li>Dedicated Recruiter Assist</li>
+                  <li>Bulk Dataset Import Hub</li>
+                  <li>Top Homepage Spotlight</li>
+                  <li>API Integration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 2: High-Impact Advertising -->
+          <div class="revenue-stream-card">
+            <div class="stream-badge stream-2">STREAM 02</div>
+            <h3 class="stream-title text-en">Promotional & Skyscraper Banners</h3>
+            <h3 class="stream-title text-ar">البانرات الترويجية وإعلانات السكاي سكرابر</h3>
+            <p class="stream-desc text-en">Prime advertising real estate across high-traffic desktop and mobile candidate directories.</p>
+            <p class="stream-desc text-ar">مساحات إعلانية استراتيجية في الصفحات الأكثر زيارة وتصفحاً من قِبل المرشحين وأصحاب الأعمال.</p>
+
+            <div class="ad-formats-showcase">
+              <div class="ad-mock-row">
+                <div class="ad-icon">🖥️</div>
+                <div class="ad-meta">
+                  <h4 class="text-en">Promotional Header Banners</h4>
+                  <h4 class="text-ar">بانرات ترويجية عريضة (Header Banners)</h4>
+                  <p class="text-en">Top-of-fold visibility on the search portal and candidate dashboard (5,000 EGP/mo per slot).</p>
+                  <p class="text-ar">صدارة الصفحة الرئيسية ولوحة التحكم بأعلى معدل نقر (5,000 ج.م شهرياً للمساحة).</p>
+                </div>
+              </div>
+              <div class="ad-mock-row">
+                <div class="ad-icon">🏙️</div>
+                <div class="ad-meta">
+                  <h4 class="text-en">Skyscraper Sidebar Banners</h4>
+                  <h4 class="text-ar">بانرات السكاي سكرابر الجانبية (Skyscraper Banners)</h4>
+                  <p class="text-en">High-engagement vertical sticky ads (160x600 & 300x600) targeting employers looking for B2B services (4,000 EGP/mo).</p>
+                  <p class="text-ar">بانرات عمودية ثابتة أثناء التصفح تستهدف الشركات والباحثين عن خدمات B2B (4,000 ج.م شهرياً).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Ad Representation Preview -->
+            <div class="ad-preview-box">
+              <div class="mini-sky-banner">
+                <span>SKYSCRAPER AD</span>
+                <small>300x600</small>
+              </div>
+              <div class="mini-content-preview">
+                <div class="mock-line wide"></div>
+                <div class="mock-line"></div>
+                <div class="mock-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stream 3: B2B Digital Add-Ons -->
+          <div class="revenue-stream-card">
+            <div class="stream-badge stream-3">STREAM 03</div>
+            <h3 class="stream-title text-en">B2B Digital Transformation Add-Ons</h3>
+            <h3 class="stream-title text-ar">حزم التحول الرقمي وخدمات القيمة المضافة</h3>
+            <p class="stream-desc text-en">Leveraging Senara's in-house engineering and media agency capabilities to build client infrastructure.</p>
+            <p class="stream-desc text-ar">استثمار خبرات فريق صنارة البرمجية والتسويقية لتقديم حلول متكاملة للشركات الشريكة.</p>
+
+            <div class="addon-services-list">
+              <div class="addon-pill">
+                <div class="addon-icon">🌐</div>
+                <div>
+                  <h4 class="text-en">Corporate Website & Career Portals</h4>
+                  <h4 class="text-ar">تصميم وتطوير مواقع الشركات وبوابات التوظيف</h4>
+                  <p class="text-en">Custom corporate landing pages & ATS integration (From 15,000 EGP)</p>
+                  <p class="text-ar">مواقع احترافية مخصصة للشركات متصلة بنظام التوظيف (تبدأ من 15,000 ج.م)</p>
+                </div>
+              </div>
+
+              <div class="addon-pill">
+                <div class="addon-icon">📱</div>
+                <div>
+                  <h4 class="text-en">Social Media & Employer Branding</h4>
+                  <h4 class="text-ar">إدارة منصات التواصل وهندسة العلامة الوظيفية</h4>
+                  <p class="text-en">Talent acquisition campaigns & LinkedIn management (From 8,000 EGP/mo)</p>
+                  <p class="text-ar">حملات جذب الكفاءات وإدارة صفحات لينكد إن للشركات (تبدأ من 8,000 ج.م/شهر)</p>
+                </div>
+              </div>
+
+              <div class="addon-pill">
+                <div class="addon-icon">⚙️</div>
+                <div>
+                  <h4 class="text-en">Custom Internal Systems & HR Tech</h4>
+                  <h4 class="text-ar">برمجة أنظمة مخصصة وإدارة الموارد البشرية</h4>
+                  <p class="text-en">Attendance, applicant tracking, and custom ERP workflows (From 25,000 EGP)</p>
+                  <p class="text-ar">أنظمة تتبع المتقدمين وإدارة الموظفين والربط السحابي (تبدأ من 25,000 ج.م)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 7: BRAND IDENTITY, VISUAL STYLE & ASSETS ==================== -->
+    <section class="slide-section" id="slide-6" data-index="6" data-title-en="Brand & Visuals" data-title-ar="الهوية البصرية والأصول">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">🎨</span>
+            <span class="text-en">VISUAL IDENTITY SYSTEM</span>
+            <span class="text-ar">منظومة الهوية البصرية والتصميم</span>
+          </div>
+          <h2>
+            <span class="text-en">The Aesthetics of <span class="accent-coral">Precision</span></span>
+            <span class="text-ar">جماليات التصميم: <span class="accent-coral">دقة واحترافية الصنارة</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">An identity crafted around patience, fluidity, and focus. Built with deep maritime midnight, electric confidence blue, and vibrant energetic coral.</span>
+            <span class="text-ar">هوية بصرية تتمحور حول الصبر، الانسيابية، والتركيز. مبنية بألوان كحلي الأعماق، الأزرق الملكي، ولمسات المرجان الحيوي المشرق.</span>
+          </p>
+        </div>
+
+        <div class="brand-assets-grid">
+          
+          <!-- Asset 1: Brand Bento Grid -->
+          <div class="asset-card">
+            <div class="asset-header">
+              <span class="asset-tag">VISUAL ARCHITECTURE</span>
+              <h3 class="asset-title text-en">Brand Moodboard & Slogan Matrix</h3>
+              <h3 class="asset-title text-ar">مودبورد الهوية وشعارات التموضع</h3>
+            </div>
+            <div class="asset-img-wrap">
+              <img src="assets/brand-grid.jpg" alt="Senara Brand Moodboard Grid" class="asset-img">
+            </div>
+            <div class="brand-slogans-strip">
+              <span class="slogan-badge">"Hiring, made precise."</span>
+              <span class="slogan-badge">"Hook the right talent, not just more resumes."</span>
+              <span class="slogan-badge">"Your next role is one hook away."</span>
+            </div>
+          </div>
+
+          <!-- Asset 2: The Hook Icon Anatomy -->
+          <div class="asset-card">
+            <div class="asset-header">
+              <span class="asset-tag">ICON ANATOMY</span>
+              <h3 class="asset-title text-en">"A Hook, Not A Net" Brand Idea</h3>
+              <h3 class="asset-title text-ar">فلسفة الرمز: الصنارة واللقاء</h3>
+            </div>
+            <div class="asset-img-wrap">
+              <img src="assets/hook-not-net.jpg" alt="A Hook, Not A Net Brand Guidelines" class="asset-img">
+            </div>
+            <div class="color-palette-bar">
+              <div class="color-chip" style="background: #0B1736;">
+                <span>#0B1736</span>
+                <small>Midnight Navy</small>
+              </div>
+              <div class="color-chip" style="background: #3452FF;">
+                <span>#3452FF</span>
+                <small>Royal Blue</small>
+              </div>
+              <div class="color-chip" style="background: #FF5733;">
+                <span>#FF5733</span>
+                <small>Coral Hook</small>
+              </div>
+              <div class="color-chip" style="background: #10B981;">
+                <span>#10B981</span>
+                <small>Verified Green</small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 8: ROADMAP, HORIZON & CALL TO ACTION ==================== -->
+    <section class="slide-section" id="slide-7" data-index="7" data-title-en="Roadmap & CTA" data-title-ar="خريطة الطريق والخطوة التالية">
+      <div class="slide-content cta-slide">
+        
+        <div class="final-hero-block">
+          <img src="assets/senara-logo.png" alt="Senara Logo Large" class="final-logo">
+          
+          <h2 class="final-title">
+            <span class="text-en">Hook Your Next Great Opportunity.</span>
+            <span class="text-ar">اصطاد كفاءتك القادمة.. بدقة صنارة.</span>
+          </h2>
+          
+          <p class="final-desc text-en">
+            Senara has successfully validated its core hypothesis through the Business Men Day launch. We are now scaling from the closed high-trust community into Egypt's foremost precision hiring ecosystem.
+          </p>
+          <p class="final-desc text-ar">
+            أثبتت صنارة نجاح نموذجها وجدارته خلال إطلاق يوم رجال الأعمال. نحن ننتقل الآن من مرحلة الحوض المجتمعي المغلق إلى المنظومة الرائدة في التوظيف الاحترافي الموثق في مصر والمنطقة.
+          </p>
+
+          <!-- Roadmap Milestones -->
+          <div class="roadmap-grid">
+            <div class="roadmap-item">
+              <div class="rm-quarter">Q4 2026</div>
+              <h4 class="rm-title text-en">Soft Launch & Validation</h4>
+              <h4 class="rm-title text-ar">الإطلاق الأولي والتحقق</h4>
+              <p class="rm-text text-en">41 applications, 9 businesses, church referral program, Excel bulk import hub.</p>
+              <p class="rm-text text-ar">41 طلباً، 9 شركات، برنامج الإحالات، ونظام الرفع الجماعي.</p>
+            </div>
+
+            <div class="roadmap-item current-milestone">
+              <div class="rm-quarter">Q1 2027</div>
+              <h4 class="rm-title text-en">Commercial Tier Monetization</h4>
+              <h4 class="rm-title text-ar">إطلاق الباقات التجارية والبانرات</h4>
+              <p class="rm-text text-en">Launch Pro Angler B2B subscriptions, promotional banners, and initial 50 corporate clients.</p>
+              <p class="rm-text text-ar">بدء اشتراكات باقات الشركات، البانرات الإعلانية، واستهداف أول 50 شركة رسمية.</p>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="rm-quarter">Q2 2027</div>
+              <h4 class="rm-title text-en">AI Matching & Mobile Apps</h4>
+              <h4 class="rm-title text-ar">الذكاء الاصطناعي وتطبيق الهاتف</h4>
+              <p class="rm-text text-en">Automated candidate ranking, native iOS & Android apps with instant push alerts.</p>
+              <p class="rm-text text-ar">تطوير خوارزميات الترتيب التلقائي وإطلاق تطبيقات الهواتف الذكية.</p>
+            </div>
+
+            <div class="roadmap-item">
+              <div class="rm-quarter">Q4 2027</div>
+              <h4 class="rm-title text-en">Regional MENA Expansion</h4>
+              <h4 class="rm-title text-ar">التوسع الإقليمي بالخليج والشرق الأوسط</h4>
+              <p class="rm-text text-en">Connecting verified Egyptian skilled talent with remote & on-site GCC enterprise hiring.</p>
+              <p class="rm-text text-ar">ربط الكفاءات المصرية الموثقة بفرص العمل المباشرة وعن بعد في دول الخليج العربي.</p>
+            </div>
+          </div>
+
+          <!-- Direct Interaction Links -->
+          <div class="final-cta-bar">
+            <a href="https://www.senaraa.com" target="_blank" rel="noopener" class="btn btn-primary btn-large">
+              <span>🎣</span>
+              <span class="text-en">Visit Live Platform (senaraa.com)</span>
+              <span class="text-ar">تصفح المنصة الحية (senaraa.com)</span>
+            </a>
+            
+            <button id="restart-deck-btn" class="btn btn-secondary btn-large">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span class="text-en">Replay Presentation</span>
+              <span class="text-ar">إعادة العرض من البداية</span>
+            </button>
+          </div>
+
+          <div class="footer-legal">
+            <p>&copy; 2026 SENARA (صنارة). All Rights Reserved. Precision Hiring Ecosystem &bull; Cairo, Egypt.</p>
+            <p class="sub-legal">Designed with interactive hook physics for investors, partners, and business stakeholders.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Keyboard / Controls Guide Modal -->
+  <dialog id="help-dialog" class="help-dialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h3>Presentation Navigation Controls</h3>
+        <button id="close-dialog-btn" class="icon-btn">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <div class="key-row"><kbd>&rarr;</kbd> or <kbd>Space</kbd> <span>Next Slide</span></div>
+        <div class="key-row"><kbd>&larr;</kbd> <span>Previous Slide</span></div>
+        <div class="key-row"><kbd>M</kbd> <span>Toggle Slide / Scrollytelling Mode</span></div>
+        <div class="key-row"><kbd>F</kbd> <span>Toggle Fullscreen</span></div>
+        <div class="key-row"><kbd>L</kbd> <span>Switch English / Arabic (عربي)</span></div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Sound notification pill -->
+  <div id="sound-toast" class="sound-toast" aria-hidden="true">
+    <span>🎣 Reeling hook...</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
