@@ -9,7 +9,7 @@
   // State Management
   const state = {
     currentSlide: 0,
-    totalSlides: 8,
+    totalSlides: 7,
     mode: 'deck', // 'deck' | 'scroll'
     lang: 'en',   // 'en' | 'ar'
     soundEnabled: true,
@@ -64,7 +64,6 @@
     { en: 'Reeling 41 Event Applications 📊', ar: 'اصطياد 41 طلباً بالحدث 📊' },
     { en: 'Securing 200k EGP Budget 💰', ar: 'تأمين ميزانية الـ 200 ألف 💰' },
     { en: '3 Scalable Revenue Streams 💼', ar: '3 مسارات دخل متصاعدة 💼' },
-    { en: 'Precision Visual Identity 🎨', ar: 'الهوية البصرية للصنارة 🎨' },
     { en: 'Ready to Fish! senaraa.com 🚀', ar: 'جاهزون للانطلاق! senaraa.com 🚀' }
   ];
 
