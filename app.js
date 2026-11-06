@@ -74,6 +74,7 @@
     updateSlide(0, false);
     setupEventListeners();
     setupMatchSimulator();
+    setupRevenueCalculator();
     initWebAudio();
   }
 
@@ -268,6 +269,11 @@
         matchPercentDisplay.textContent = `${score}%`;
       }
 
+      const lsmLiveScore = document.getElementById('lsm-live-score');
+      if (lsmLiveScore) {
+        lsmLiveScore.textContent = `${score}%`;
+      }
+
       // Update Circular SVG Gauge (circumference: 2 * PI * 42 ≈ 263.9)
       if (dialFillCircle) {
         const circumference = 264;
@@ -299,6 +305,48 @@
     });
 
     recalculate();
+  }
+
+  // ==========================================================================
+  // Interactive Revenue & ROI Calculator (Slide 6)
+  // ==========================================================================
+  function setupRevenueCalculator() {
+    const compSlider = document.getElementById('companies-slider');
+    const banSlider = document.getElementById('banners-slider');
+    const addSlider = document.getElementById('addons-slider');
+    const compVal = document.getElementById('companies-count-val');
+    const banVal = document.getElementById('banners-count-val');
+    const addVal = document.getElementById('addons-count-val');
+    const mrrVal = document.getElementById('mrr-val');
+    const arrVal = document.getElementById('arr-val');
+    const paybackVal = document.getElementById('payback-val');
+
+    if (!compSlider || !banSlider || !addSlider) return;
+
+    function recalcRevenue() {
+      const companies = parseInt(compSlider.value, 10);
+      const banners = parseInt(banSlider.value, 10);
+      const addons = parseInt(addSlider.value, 10);
+
+      if (compVal) compVal.textContent = companies;
+      if (banVal) banVal.textContent = banners;
+      if (addVal) addVal.textContent = banners > 0 ? banners : 0;
+      if (addVal) addVal.textContent = addons;
+
+      const mrr = (companies * 3500) + (banners * 4500) + (addons * 15000);
+      const arr = mrr * 12;
+      const paybackMonths = mrr > 0 ? (200000 / mrr).toFixed(1) : '0';
+
+      if (mrrVal) mrrVal.textContent = `${mrr.toLocaleString()} EGP`;
+      if (arrVal) arrVal.textContent = `${arr.toLocaleString()} EGP`;
+      if (paybackVal) paybackVal.textContent = `${paybackMonths} Months`;
+    }
+
+    [compSlider, banSlider, addSlider].forEach(slider => {
+      slider.addEventListener('input', recalcRevenue);
+    });
+
+    recalcRevenue();
   }
 
   // ==========================================================================
