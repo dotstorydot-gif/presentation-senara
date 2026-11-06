@@ -1746,11 +1746,12 @@ html[dir="rtl"] .qr-summary-box {
 }
 
 .donut-legend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.82rem;
   font-weight: 600;
+  width: 100%;
 }
 
 .legend-item {
