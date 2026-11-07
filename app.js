@@ -9,7 +9,7 @@
   // State Management
   const state = {
     currentSlide: 0,
-    totalSlides: 7,
+    totalSlides: 8,
     mode: 'deck', // 'deck' | 'scroll'
     lang: 'en',   // 'en' | 'ar'
     soundEnabled: true,
@@ -62,7 +62,8 @@
     { en: 'Dual Verified Badges 🟢🔵', ar: 'توثيق مزدوج معتمد 🟢🔵' },
     { en: 'Calculating Match Fit 🎯', ar: 'حساب مؤشر التوافق 🎯' },
     { en: 'Reeling 41 Event Applications 📊', ar: 'اصطياد 41 طلباً بالحدث 📊' },
-    { en: 'Securing 200k EGP Budget 💰', ar: 'تأمين ميزانية الـ 200 ألف 💰' },
+    { en: 'Disciplined 200k EGP Seed 💰', ar: 'ميزانية تأسيس 200 ألف 💰' },
+    { en: 'Sustaining Monthly Operations ⚙️', ar: 'تأمين تكاليف التشغيل الشهري ⚙️' },
     { en: '3 Scalable Revenue Streams 💼', ar: '3 مسارات دخل متصاعدة 💼' },
     { en: 'Ready to Fish! senaraa.com 🚀', ar: 'جاهزون للانطلاق! senaraa.com 🚀' }
   ];

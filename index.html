@@ -41,7 +41,7 @@
         <button id="prev-slide-btn" class="icon-btn" aria-label="Previous Slide">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <span id="slide-counter" class="slide-num">01 / 07</span>
+        <span id="slide-counter" class="slide-num">01 / 08</span>
         <button id="next-slide-btn" class="icon-btn" aria-label="Next Slide">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
         </button>
@@ -164,18 +164,23 @@
       <span class="dot-tooltip text-en">Launch Data & Event Results</span>
       <span class="dot-tooltip text-ar">نتائج الإطلاق والحدث</span>
     </button>
-    <button class="rail-dot" data-slide="4" title="5. 200k EGP Budget">
+    <button class="rail-dot" data-slide="4" title="5. Seed Budget Breakdown">
       <span class="dot-number">05</span>
-      <span class="dot-tooltip text-en">Budget Breakdown (200k EGP)</span>
-      <span class="dot-tooltip text-ar">توزيع الميزانية (200 ألف)</span>
+      <span class="dot-tooltip text-en">Seed Budget (200k EGP)</span>
+      <span class="dot-tooltip text-ar">الميزانية الأولية (200 ألف)</span>
     </button>
-    <button class="rail-dot" data-slide="5" title="6. Monetization & Sales">
+    <button class="rail-dot" data-slide="5" title="6. Monthly Operations">
       <span class="dot-number">06</span>
+      <span class="dot-tooltip text-en">Monthly OPEX & Running Costs</span>
+      <span class="dot-tooltip text-ar">تكاليف التشغيل الشهرية</span>
+    </button>
+    <button class="rail-dot" data-slide="6" title="7. Monetization & Sales">
+      <span class="dot-number">07</span>
       <span class="dot-tooltip text-en">Monetization & Subscriptions</span>
       <span class="dot-tooltip text-ar">نموذج الدخل والاشتراكات</span>
     </button>
-    <button class="rail-dot" data-slide="6" title="7. Roadmap & Next Horizon">
-      <span class="dot-number">07</span>
+    <button class="rail-dot" data-slide="7" title="8. Roadmap & Next Horizon">
+      <span class="dot-number">08</span>
       <span class="dot-tooltip text-en">Roadmap & Call to Action</span>
       <span class="dot-tooltip text-ar">خريطة الطريق والتواصل</span>
     </button>
@@ -1043,25 +1048,48 @@
 
         </div>
 
-        <!-- Monthly Operations & Running OPEX -->
-        <div class="monthly-opex-container">
-          <div class="opex-header">
-            <div class="opex-title-block">
-              <span class="opex-badge text-en">ONGOING OPEX</span>
-              <span class="opex-badge text-ar">تكاليف التشغيل الشهرية</span>
-              <h3 class="opex-title">
+      </div>
+    </section>
+
+    <!-- ==================== SLIDE 6: MONTHLY OPERATIONS & RUNNING OPEX ==================== -->
+    <section class="slide-section" id="slide-5" data-index="5" data-title-en="Monthly Operations" data-title-ar="تكاليف التشغيل الشهرية">
+      <div class="slide-content">
+        <div class="section-heading">
+          <div class="category-tag">
+            <span class="hook-emoji">⚙️</span>
+            <span class="text-en">OPERATIONAL SUSTAINABILITY</span>
+            <span class="text-ar">الاستدامة التشغيلية والنمو</span>
+          </div>
+          <h2>
+            <span class="text-en">Monthly Operations & <span class="accent-coral">Running Costs</span></span>
+            <span class="text-ar">رسوم ومصاريف التشغيل الشهرية: <span class="accent-coral">استمرارية المنظومة</span></span>
+          </h2>
+          <p class="heading-desc">
+            <span class="text-en">A lean, disciplined operational structure covering continuous platform engineering, aggressive talent acquisition, and dedicated project management.</span>
+            <span class="text-ar">هيكل تشغيلي مرن ومدروس يضمن الصيانة الفنية المستمرة للمنصة، الحملات التسويقية الممولة، وإدارة العمليات بدقة عالية.</span>
+          </p>
+        </div>
+
+        <div class="opex-slide-container">
+          <!-- Top Estimated Burn Banner -->
+          <div class="opex-top-banner">
+            <div class="opex-banner-left">
+              <span class="opex-pill-tag text-en">ONGOING OPEX</span>
+              <span class="opex-pill-tag text-ar">تكاليف التشغيل الشهرية</span>
+              <h3 class="opex-banner-title">
                 <span class="text-en">Monthly Operations & Running Costs</span>
-                <span class="text-ar">رسوم ومصاريف التشغيل الشهرية المستمرة</span>
+                <span class="text-ar">المعدل التقديري للمصاريف التشغيلية</span>
               </h3>
             </div>
-            <div class="opex-total-pill">
+            <div class="opex-banner-right">
               <span class="pill-label text-en">Estimated Monthly Burn:</span>
               <span class="pill-label text-ar">إجمالي المصاريف الشهرية التقديرية:</span>
-              <span class="pill-amount">65,000 - 85,000 <small>EGP/mo</small></span>
+              <span class="pill-amount">65,000 - 85,000 <small>EGP / mo</small></span>
             </div>
           </div>
 
-          <div class="opex-cards-grid">
+          <!-- The 3 Core Operations Cards -->
+          <div class="opex-cards-grid opex-slide-cards">
             
             <!-- Item 1: Maintenance Platform -->
             <div class="opex-card">
@@ -1109,13 +1137,29 @@
             </div>
 
           </div>
+
+          <!-- Bottom Operational Viability Row -->
+          <div class="opex-coverage-card">
+            <div class="coverage-icon">💡</div>
+            <div class="coverage-content">
+              <h4 class="text-en">Break-Even & Operational Coverage Synergy</h4>
+              <h4 class="text-ar">تغطية المصاريف ونقطة التعادل التشغيلي</h4>
+              <p class="text-en">With only <strong>20 to 25 active business subscribers</strong> on the Pro tier (3,500 EGP/mo), all monthly platform operations, marketing, and management costs are <strong>100% self-funded</strong>, unlocking immediate net cash flow.</p>
+              <p class="text-ar">باستقطاب فقط <strong>20 إلى 25 شركة مشتركة</strong> في باقة Pro (3,500 ج.م/شهر)، يتم تغطية كامل المصاريف التشغيلية والتسويقية بنسبة <strong>100%</strong> وتحقيق تدفق نقدي حر وفوري للمنصة.</p>
+            </div>
+            <div class="coverage-badge">
+              <span class="badge-sub text-en">Target Break-Even</span>
+              <span class="badge-sub text-ar">نقطة التعادل</span>
+              <span class="badge-num">20-25 <small>Clients</small></span>
+            </div>
+          </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ==================== SLIDE 6: MONETIZATION & SALES STRATEGY ==================== -->
-    <section class="slide-section" id="slide-5" data-index="5" data-title-en="Monetization & Sales" data-title-ar="نموذج الإيرادات والمبيعات">
+    <!-- ==================== SLIDE 7: MONETIZATION & SALES STRATEGY ==================== -->
+    <section class="slide-section" id="slide-6" data-index="6" data-title-en="Monetization & Sales" data-title-ar="نموذج الإيرادات والمبيعات">
       <div class="slide-content">
         <div class="section-heading">
           <div class="category-tag">
@@ -1347,8 +1391,8 @@
       </div>
     </section>
 
-    <!-- ==================== SLIDE 7: ROADMAP, HORIZON & CALL TO ACTION ==================== -->
-    <section class="slide-section" id="slide-6" data-index="6" data-title-en="Roadmap & CTA" data-title-ar="خريطة الطريق والخطوة التالية">
+    <!-- ==================== SLIDE 8: ROADMAP, HORIZON & CALL TO ACTION ==================== -->
+    <section class="slide-section" id="slide-7" data-index="7" data-title-en="Roadmap & CTA" data-title-ar="خريطة الطريق والخطوة التالية">
       <div class="slide-content cta-slide">
         
         <div class="final-hero-block">
