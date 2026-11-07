@@ -62,7 +62,7 @@
     { en: 'Dual Verified Badges 🟢🔵', ar: 'توثيق مزدوج معتمد 🟢🔵' },
     { en: 'Calculating Match Fit 🎯', ar: 'حساب مؤشر التوافق 🎯' },
     { en: 'Reeling 41 Event Applications 📊', ar: 'اصطياد 41 طلباً بالحدث 📊' },
-    { en: '5-Phase Expansion Horizon 🚀', ar: 'خريطة التوسع بـ 5 مراحل 🚀' },
+    { en: 'Senara Phases 🚀', ar: 'مراحل صنارة 🚀' },
     { en: '3 Scalable Revenue Streams 💼', ar: '3 مسارات دخل متصاعدة 💼' },
     { en: 'Disciplined 200k EGP Seed 💰', ar: 'ميزانية تأسيس 200 ألف 💰' },
     { en: 'Sustaining Monthly Operations ⚙️', ar: 'تأمين تكاليف التشغيل الشهري ⚙️' }
