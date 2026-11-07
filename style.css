@@ -2479,11 +2479,11 @@ html[dir="rtl"] .pop-tag {
 
 .roadmap-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.75rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
   text-align: left;
-  margin: 0 auto 2.75rem auto;
-  max-width: 980px;
+  margin: 0 auto 2.5rem auto;
+  max-width: 1240px;
 }
 
 html[dir="rtl"] .roadmap-grid {
@@ -2496,12 +2496,46 @@ html[dir="rtl"] .roadmap-grid {
   border-radius: 14px;
   padding: 1.25rem;
   transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-item:hover {
+  border-color: var(--brand-royal);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(52, 82, 255, 0.15);
+}
+
+.roadmap-item:nth-child(1),
+.roadmap-item:nth-child(2),
+.roadmap-item:nth-child(3) {
+  grid-column: span 2;
+}
+
+.roadmap-item:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.roadmap-item:nth-child(5) {
+  grid-column: 4 / span 2;
 }
 
 .roadmap-item.current-milestone {
   border-color: var(--brand-royal);
   background: linear-gradient(135deg, rgba(52, 82, 255, 0.2) 0%, var(--bg-surface) 100%);
   box-shadow: 0 10px 24px rgba(52, 82, 255, 0.2);
+}
+
+.roadmap-item.tank-milestone {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, var(--bg-surface) 100%);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.15);
+}
+
+.roadmap-item.tank-milestone .rm-phase-tag {
+  background: rgba(245, 158, 11, 0.25);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.55);
 }
 
 .rm-badge-row {
@@ -2694,6 +2728,14 @@ kbd {
   .monetization-grid,
   .roadmap-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .roadmap-item:nth-child(1),
+  .roadmap-item:nth-child(2),
+  .roadmap-item:nth-child(3),
+  .roadmap-item:nth-child(4),
+  .roadmap-item:nth-child(5) {
+    grid-column: span 1;
   }
   
   .fishing-rig-container {
