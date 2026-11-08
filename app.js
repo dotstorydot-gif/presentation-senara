@@ -38,6 +38,7 @@
   const helpDialog = document.getElementById('help-dialog');
   const closeDialogBtn = document.getElementById('close-dialog-btn');
   const restartBtn = document.getElementById('restart-deck-btn');
+  const printDeckBtn = document.getElementById('print-deck-btn');
   const nextSlideTriggers = document.querySelectorAll('.next-slide-trigger');
 
   // Interactive Match Simulator Elements
@@ -467,6 +468,11 @@
     }
 
     // Header Action Buttons
+    if (printDeckBtn) {
+      printDeckBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
     if (modeToggleBtn) modeToggleBtn.addEventListener('click', togglePresentationMode);
     if (langToggleBtn) langToggleBtn.addEventListener('click', toggleLanguage);
     if (audioToggleBtn) audioToggleBtn.addEventListener('click', toggleAudio);

@@ -3210,3 +3210,298 @@ html[dir="rtl"] .lsm-match-score-badge {
     text-align: left;
   }
 }
+
+/* ==========================================================================
+   PRINT & A4 PDF EXPORT STYLES (A4 Landscape: 297mm x 210mm)
+   ========================================================================== */
+@page {
+  size: 297mm 210mm;
+  margin: 0;
+}
+
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    box-sizing: border-box !important;
+  }
+
+  html, body {
+    width: 297mm !important;
+    min-width: 297mm !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #060B19 !important;
+    color: #FFFFFF !important;
+    overflow: visible !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  /* Hide interactive controls, header, navigation, and floating rigs */
+  .pres-header,
+  .slide-nav-rail,
+  .fishing-rig-container,
+  .fishing-rig,
+  .water-ripples,
+  #help-dialog,
+  #sound-toast,
+  .btn,
+  .next-slide-trigger,
+  #restart-deck-btn,
+  .cast-btn,
+  .mode-btn,
+  .icon-btn,
+  .lang-btn,
+  .final-cta-bar,
+  input[type="range"] {
+    display: none !important;
+  }
+
+  /* Ambient background */
+  .bg-mesh {
+    position: fixed !important;
+    inset: 0 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+  }
+
+  /* Presentation Wrapper */
+  .presentation-wrapper,
+  body.mode-deck .presentation-wrapper,
+  body.mode-scroll .presentation-wrapper {
+    display: block !important;
+    width: 297mm !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Each Slide is an Exact A4 Landscape Page */
+  .slide-section,
+  body.mode-deck .slide-section,
+  body.mode-scroll .slide-section,
+  html[dir="rtl"] body.mode-deck .slide-section,
+  html[dir="rtl"] body.mode-scroll .slide-section {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 297mm !important;
+    height: 210mm !important;
+    min-height: 210mm !important;
+    max-height: 210mm !important;
+    page-break-before: auto !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    padding: 12mm 16mm 10mm 16mm !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    overflow: hidden !important;
+    background: #060B19 !important;
+  }
+
+  .slide-section:last-of-type {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Header Branding on Top of Each Slide */
+  .slide-section::before {
+    content: "SENARA (صنارة)  •  A HOOK, NOT A NET  •  PRECISION HIRING ECOSYSTEM  •  senaraa.com";
+    position: absolute;
+    top: 6mm;
+    left: 16mm;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 10;
+  }
+
+  /* Footer Legal on Bottom of Each Slide */
+  .slide-section::after {
+    content: "CONFIDENTIAL & PROPRIETARY  •  CAIRO, EGYPT";
+    position: absolute;
+    bottom: 5mm;
+    right: 16mm;
+    font-size: 7.5px;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 10;
+  }
+
+  .slide-content {
+    width: 100% !important;
+    max-width: 1060px !important;
+    margin: auto 0 !important;
+    height: auto !important;
+    max-height: 190mm !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  /* Typography & Compact Elements for A4 Landscape */
+  .slide-header {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .slide-header h2 {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .slide-header .slide-subtitle {
+    font-size: 0.88rem !important;
+    margin-top: 0.3rem !important;
+  }
+
+  /* Slide 1 Genesis Grid */
+  .genesis-grid {
+    gap: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .genesis-card {
+    padding: 1.25rem !important;
+  }
+  .quote-hook {
+    padding: 0.75rem 1rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  /* Slide 2 Badges */
+  .dual-badge-grid {
+    gap: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .badge-card {
+    padding: 1.25rem !important;
+  }
+
+  /* Slide 3 Engine & Simulator */
+  .match-engine-grid {
+    gap: 1.5rem !important;
+  }
+  .calc-body-grid {
+    gap: 1.25rem !important;
+  }
+  .sim-sliders {
+    gap: 0.8rem !important;
+  }
+  .calc-box {
+    padding: 1.25rem !important;
+  }
+
+  /* Slide 4 Traction */
+  .stats-overview-grid {
+    gap: 0.8rem !important;
+    margin-bottom: 1.25rem !important;
+  }
+  .stat-card-clean {
+    padding: 1rem 0.75rem !important;
+  }
+  .stat-card-clean .stat-number {
+    font-size: 2rem !important;
+  }
+  .side-by-side-grid {
+    gap: 1rem !important;
+  }
+
+  /* Slide 5 Senara Phases */
+  .final-hero-block {
+    margin-bottom: 0.5rem !important;
+  }
+  .final-logo {
+    width: 60px !important;
+    height: auto !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .final-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .final-desc {
+    font-size: 0.82rem !important;
+    max-width: 820px !important;
+    margin-bottom: 1rem !important;
+  }
+  .roadmap-grid {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 0.6rem !important;
+    margin-bottom: 0 !important;
+  }
+  .roadmap-item {
+    padding: 0.75rem 0.6rem !important;
+  }
+  .roadmap-item:nth-child(n) {
+    grid-column: span 1 !important;
+  }
+  .rm-title {
+    font-size: 0.85rem !important;
+    margin: 0.4rem 0 0.3rem 0 !important;
+  }
+  .rm-text {
+    font-size: 0.68rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Slide 6 Monetization */
+  .pricing-deck-grid {
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .pricing-plan-card {
+    padding: 1.25rem !important;
+  }
+  .plan-price-num {
+    font-size: 1.8rem !important;
+  }
+  .calc-box-highlight {
+    padding: 0.85rem 1.25rem !important;
+  }
+
+  /* Slide 7 Budget Breakdown */
+  .budget-layout-grid {
+    gap: 1.5rem !important;
+  }
+  .budget-item-card {
+    padding: 0.85rem 1.25rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .budget-amount {
+    font-size: 1.3rem !important;
+  }
+
+  /* Slide 8 Monthly Operations */
+  .monthly-costs-grid {
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .cost-card {
+    padding: 1.25rem 1rem !important;
+  }
+  .cost-amount {
+    font-size: 1.5rem !important;
+  }
+  .breakeven-banner {
+    padding: 1rem 1.25rem !important;
+    margin-top: 0.5rem !important;
+  }
+  .footer-legal {
+    margin-top: 0.8rem !important;
+    padding-top: 0.6rem !important;
+    font-size: 0.72rem !important;
+  }
+}
